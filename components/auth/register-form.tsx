@@ -44,21 +44,6 @@ export function RegisterForm() {
         return
       }
 
-      // Create a profile record
-      if (data.user) {
-        const { error: profileError } = await supabase.from("profiles").insert([
-          {
-            id: data.user.id,
-            full_name: fullName,
-            email: email,
-          },
-        ])
-
-        if (profileError) {
-          console.error("Error creating profile:", profileError)
-        }
-      }
-
       toast({
         title: "Registration successful",
         description: "Your account has been created successfully.",
